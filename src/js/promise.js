@@ -2,7 +2,7 @@
  * promise
  *  1. 初始化 & 异步调用
  *  2. then catch 链式调用
- *  3. resolve reject all race
+ *  3. resolve reject all race serial
  */
 
 class MyPromise {
