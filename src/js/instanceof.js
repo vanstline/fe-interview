@@ -10,23 +10,15 @@ function isBaseType(value) {
 }
 
 export function myInstanceof(left, right) {
-  if (left == null) return false
   if (isBaseType(left)) return false
 
-  let instance = left.__proto__
+  let proto = Object.getPrototypeOf(left)
 
-  while (instance) {
-    if (instance === right.prototype) {
-      return true
-    }
-    instance = instance.__proto__
+  if (!proto) return false
+
+  while (proto) {
+    if (proto === right.prototype) return true
+    proto = proto.__proto__
   }
   return false
 }
-
-const obj = {
-  a: 100,
-  [0]: 111,
-}
-
-console.log(`🍑🍑🍑 obj 🍑🍑🍑: `, obj)
